@@ -25,6 +25,24 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Gate::define('subs-only', function($user){
+            if ($user->name =="wind"){
+                return true;
+            }
+                return false;
+        });
+        Gate::define('subs-only2', function($user){
+            if ($user->name =="wind muser" ){
+                return true;
+            }
+                return false;
+        });
+        Gate::define('subs-only3', function($user){
+            if ($user->name =="Super Admin" ){
+                return true;
+            }
+                return false;
+        });
         //
     }
 }
